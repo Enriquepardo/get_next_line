@@ -6,11 +6,11 @@
 /*   By: enpardo- <enpardo-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 21:33:00 by enpardo-          #+#    #+#             */
-/*   Updated: 2025/02/08 21:48:52 by enpardo-         ###   ########.fr       */
+/*   Updated: 2025/02/14 02:03:12 by enpardo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "get_next_line.h"
+#include "get_next_line.h"
 
 size_t	ft_strlen(const char *str)
 {
@@ -30,11 +30,11 @@ char	*ft_strchr(const char *str, int c)
 	while (*str != '\0')
 	{
 		if (*str == ch)
-			return ((char *) str);
+			return ((char *)str);
 		str++;
 	}
 	if (ch == '\0')
-		return ((char *) str);
+		return ((char *)str);
 	return (0);
 }
 
@@ -79,9 +79,9 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t			sublen;
-	size_t			lenmax;
-	char			*substr;
+	size_t	sublen;
+	size_t	lenmax;
+	char	*substr;
 
 	if (!s)
 		return (NULL);
@@ -105,10 +105,14 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	len2;
 	char	*join;
 
+	if (!s1 && !s2)
+		return (NULL);
+	if (!s1)
+		return (ft_strdup(s2));
+	if (!s2)
+		return (ft_strdup(s1));
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
-	if (!s1 || !s2)
-		return (NULL);
 	join = (char *)malloc(len1 + len2 + 1);
 	if (!join)
 		return (NULL);
