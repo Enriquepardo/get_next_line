@@ -6,7 +6,7 @@
 /*   By: enpardo- <enpardo-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 20:09:57 by enpardo-          #+#    #+#             */
-/*   Updated: 2025/02/08 21:50:32 by enpardo-         ###   ########.fr       */
+/*   Updated: 2025/02/18 18:51:54 by enpardo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@
 # endif
 
 char	*get_next_line(int fd);
+
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strchr(const char *s, int c);
 size_t	ft_strlen(const char *s);
 char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
 
 #endif
