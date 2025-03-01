@@ -16,24 +16,26 @@
 
 int	main(int argc, char **argv)
 {
-	int		fd;
-	char	*line;
+	int fd;
+	char *line;
 
 	if (argc < 2)
-		fd = 0; // Leer desde stdin si no se pasa archivo
+	{
+		fd = 0;
+		while ((line = get_next_line(fd)))
+		{
+			printf("Línea leída: %s", line);
+			free(line);
+		}
+	}
 	else
+	{
 		fd = open(argv[1], O_RDONLY);
-	if (fd < 0)
-	{
-		perror("Error abriendo archivo");
-		return (1);
+		while ((line = get_next_line(fd)))
+		{
+			printf("Línea leída: %s", line);
+			free(line);
+		}
 	}
-	while ((line = get_next_line(fd)))
-	{
-		printf("%s", line);
-		free(line);
-	}
-	if (argc > 1)
-		close(fd);
 	return (0);
 }
