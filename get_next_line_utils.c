@@ -6,7 +6,7 @@
 /*   By: enpardo- <enpardo-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 21:33:00 by enpardo-          #+#    #+#             */
-/*   Updated: 2025/02/18 19:53:09 by enpardo-         ###   ########.fr       */
+/*   Updated: 2025/03/02 20:14:19 by enpardo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,41 @@ char	*ft_strchr(const char *str, int c)
 	return (0);
 }
 
+void	*ft_memset(void *str, int c, size_t n)
+{
+	unsigned char	*copy;
+
+	copy = str;
+	while (n > 0)
+	{
+		*copy = (unsigned char)c;
+		copy++;
+		n--;
+	}
+	return (str);
+}
+
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	void		*pt;
+	size_t		total_size;
+	static int	j;
+
+	j++;
+	if (j == 2)
+		return (NULL);
+	if (nmemb == 2147483647 || size == 2147483647)
+		return (NULL);
+	else
+		total_size = nmemb * size;
+	pt = malloc(nmemb * size);
+	if (!pt)
+		return (NULL);
+	if (total_size > 0)
+		ft_memset(pt, 0, total_size);
+	return (pt);
+}
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sub;
@@ -52,7 +87,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (ft_strdup(""));
 	if (len > s_len - start)
 		len = s_len - start;
-	sub = (char *)malloc(len + 1);
+	sub = (char *)ft_calloc(len + 1, 1);
 	if (!sub)
 		return (NULL);
 	while (i < len && s[start + i])
@@ -70,7 +105,7 @@ char	*ft_strdup(const char *s1)
 	size_t	i;
 
 	i = 0;
-	dup = (char *)malloc(ft_strlen(s1) + 1);
+	dup = (char *)ft_calloc(ft_strlen(s1) + 1, 1);
 	if (!dup)
 		return (NULL);
 	while (s1[i])
@@ -92,7 +127,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	j = 0;
 	if (!s1 || !s2)
 		return (NULL);
-	join = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	join = (char *)ft_calloc(ft_strlen(s1) + ft_strlen(s2) + 1, 1);
 	if (!join)
 		return (NULL);
 	while (s1[i])

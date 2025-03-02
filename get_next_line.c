@@ -6,7 +6,7 @@
 /*   By: enpardo- <enpardo-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 20:09:44 by enpardo-          #+#    #+#             */
-/*   Updated: 2025/02/22 20:50:20 by enpardo-         ###   ########.fr       */
+/*   Updated: 2025/03/02 20:13:35 by enpardo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ static char	*read_and_store(int fd, char *storage)
 	storage = allocate_storage(storage);
 	if (!storage)
 		return (NULL);
-	buffer = malloc(BUFFER_SIZE + 1);
+	buffer = ft_calloc(BUFFER_SIZE + 1, 1);
 	if (!buffer)
-		return (NULL);
+		return (free(storage), NULL);
 	new_storage = process_reading(fd, storage, buffer);
 	free(buffer);
 	if (!new_storage)

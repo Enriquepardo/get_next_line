@@ -6,7 +6,7 @@
 /*   By: enpardo- <enpardo-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 20:09:57 by enpardo-          #+#    #+#             */
-/*   Updated: 2025/02/22 20:01:20 by enpardo-         ###   ########.fr       */
+/*   Updated: 2025/03/02 20:00:42 by enpardo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ char	*ft_strchr(const char *s, int c);
 size_t	ft_strlen(const char *s);
 char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+void	*ft_calloc(size_t nmemb, size_t size);
 
 #endif
